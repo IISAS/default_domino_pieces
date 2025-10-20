@@ -20,8 +20,9 @@ def clean_text(text):
     return text
 
 
-def extract_content_with_known_tags_classes(url, search_items):
-    response = requests.get(url)
+def extract_content_with_known_tags_classes(url, user_agent, search_items):
+    headers = {'User-Agent': user_agent}
+    response = requests.get(url, headers=headers)
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
         content = []
@@ -42,13 +43,14 @@ class PageScrapperPiece(BasePiece):
     def piece_function(self, input_data: InputModel):
 
         url = input_data.url
+        user_agent = input_data.user_agent
         search_items = input_data.search_items
 
         self.logger.info("Starting page scrapper...")
         self.logger.info(f"URL: {url}")
         self.logger.info(f"Search items: {search_items}")
 
-        content = extract_content_with_known_tags_classes(url, search_items)
+        content = extract_content_with_known_tags_classes(url, user_agent, search_items)
 
         self.logger.info(f"Scrapped text: {content}")
 

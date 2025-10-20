@@ -21,6 +21,10 @@ class InputModel(BaseModel):
         default="",
         description='URL to retrieve content from.'
     )
+    user_agent: str = Field(
+        default="",
+        description='User-Agent string.'
+    )
     search_items: List[ItemType] = Field(
         default=[ItemType()],
         description='List of HTML tags and class names to search for.'

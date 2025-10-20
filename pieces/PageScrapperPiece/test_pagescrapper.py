@@ -4,6 +4,7 @@ from domino.testing import piece_dry_run
 def test_pagescrapper():
     input_data = dict(
         url="https://en.wikipedia.org/wiki/Mr._Tambourine_Man",
+        user_agent='PageScrapperPiece/0.9.0 (https://github.com/IISAS/default_domino_pieces; stefan.dlugolinsky@savba.sk)',
         search_items=[
             dict(
                 tag="article",
