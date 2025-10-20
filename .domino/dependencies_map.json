@@ -5,24 +5,24 @@
             "requirements_file": "requirements_0.txt"
         },
         "pieces": [
-            "SaveImagePiece",
             "GetDateTimePiece",
-            "CustomPythonPiece",
-            "LogPiece",
-            "ImageFilterPiece",
-            "DataConversionPiece",
-            "YDataProfilingPiece",
-            "StringConditionChecksPiece",
-            "PageScrapperPiece",
-            "SleepPiece",
             "StringOperationsPiece",
-            "ToyDatasetsPiece",
             "ToStringPiece",
+            "SaveImagePiece",
+            "StringConditionChecksPiece",
+            "ToyDatasetsPiece",
+            "LogPiece",
+            "PageScrapperPiece",
+            "ImageFilterPiece",
             "LoremIpsumGeneratorPiece",
             "GetItemFromArrayPiece",
-            "HttpRequestPiece"
+            "SleepPiece",
+            "YDataProfilingPiece",
+            "DataConversionPiece",
+            "HttpRequestPiece",
+            "CustomPythonPiece"
         ],
         "secrets": [],
-        "source_image": "ghcr.io/iisas/default_domino_pieces:0.8.1-group0"
+        "source_image": "ghcr.io/iisas/default_domino_pieces:0.9.0-group0"
     }
 }
