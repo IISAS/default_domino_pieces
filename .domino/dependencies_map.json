@@ -5,22 +5,22 @@
             "requirements_file": "requirements_0.txt"
         },
         "pieces": [
-            "GetDateTimePiece",
-            "StringOperationsPiece",
-            "ToStringPiece",
-            "SaveImagePiece",
-            "StringConditionChecksPiece",
             "ToyDatasetsPiece",
             "LogPiece",
-            "PageScrapperPiece",
+            "SleepPiece",
+            "SaveImagePiece",
+            "CustomPythonPiece",
+            "StringOperationsPiece",
+            "DataConversionPiece",
             "ImageFilterPiece",
             "LoremIpsumGeneratorPiece",
+            "ToStringPiece",
             "GetItemFromArrayPiece",
-            "SleepPiece",
             "YDataProfilingPiece",
-            "DataConversionPiece",
+            "GetDateTimePiece",
+            "PageScrapperPiece",
             "HttpRequestPiece",
-            "CustomPythonPiece"
+            "StringConditionChecksPiece"
         ],
         "secrets": [],
         "source_image": "ghcr.io/iisas/default_domino_pieces:0.9.0-group0"
