@@ -17,10 +17,10 @@ jobs:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
 
-      - name: Set up Python 3.10
+      - name: Set up Python 3.11
         uses: actions/setup-python@v3
         with:
-          python-version: "3.10"
+          python-version: "3.11"
 
       - name: Pip install packages
         run: |
@@ -39,24 +39,26 @@ jobs:
 
       - name: Run organize and build images
         run: |
-          domino piece organize --build-images --source-url=https://github.com/${{github.repository}}
+          domino piece-repository organize --build-images --source-url=https://github.com/${{github.repository}}
 
       - name: Install Tests Dependencies
         run: pip install -r requirements-tests.txt
 
       - name: Run tests over built images
+        env:
+          DOMINO_TESTS_ENVIRONMENT: github
         run: |
           pytest --cov=pieces --cov-report=xml --cov-report=term-missing
       
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+#      - name: Upload coverage reports to Codecov
+#        uses: codecov/codecov-action@v3
+#        env:
+#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       
       - name: Publish images
         env:
           GHCR_USERNAME: ${{ github.actor }}
-        run: domino piece publish-images --registry-token ${{ secrets.GITHUB_TOKEN }}
+        run: domino piece-repository publish-images --registry-token ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit files
         run: |
@@ -75,4 +77,4 @@ jobs:
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: domino piece release
+        run: domino piece-repository release
