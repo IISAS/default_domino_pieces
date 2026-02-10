@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from enum import Enum
 
 
@@ -10,18 +10,20 @@ class MethodTypes(str, Enum):
 
 
 class InputModel(BaseModel):
+    model_config = ConfigDict(use_enum_values=True)
+
     url: str = Field(
         description="URL to make a request to."
     )
-    method: str = Field(
-        description="HTTP method to use.", 
-        default = MethodTypes.GET,
-        json_schema_extra={"enum": [MethodTypes.GET, MethodTypes.POST, MethodTypes.PUT, MethodTypes.DELETE]}
-    )
-#    method: MethodTypes = Field(
-#        default=MethodTypes.GET,
-#        description="HTTP method to use."
+#    method: str = Field(
+#        description="HTTP method to use.", 
+#        default = MethodTypes.GET,
+#        json_schema_extra={"enum": [MethodTypes.GET, MethodTypes.POST, MethodTypes.PUT, MethodTypes.DELETE]}
 #    )
+    method: MethodTypes = Field(
+        default=MethodTypes.GET,
+        description="HTTP method to use."
+    )
     bearer_token: str = Field(
         default=None,
         description="Bearer token to use for authentication."
