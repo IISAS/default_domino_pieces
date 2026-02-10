@@ -3,7 +3,7 @@ from typing import Annotated
 from enum import Enum
 
 
-class MethodTypes(str, Enum):
+class MethodTypes(Enum):
     GET = 'GET'
     POST = 'POST'
     PUT = 'PUT'
