@@ -2,7 +2,7 @@
 REGISTRY_NAME = "iisas"
 
 REPOSITORY_NAME = "default_domino_pieces"
-REPOSITORY_LABEL = "Default Pieces Repository (forked by IISAS)"
+REPOSITORY_LABEL = "Default Pieces Repository (forked by  IISAS)"
 
 VERSION = "0.9.0"
 
