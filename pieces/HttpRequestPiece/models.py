@@ -1,4 +1,5 @@
 from pydantic import BaseModel, ConfigDict, Field
+from typing import Annotated
 from enum import Enum
 
 
@@ -15,7 +16,7 @@ class InputModel(BaseModel):
     url: str = Field(
         description="URL to make a request to."
     )
-    method[MethodTypes | None, Field(alias='MethodTypes')] = None
+    method: Annotated[MethodTypes | None, Field(alias='MethodTypes')] = None
 #    method: str = Field(
 #        description="HTTP method to use.", 
 #        default = MethodTypes.GET,
