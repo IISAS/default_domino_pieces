@@ -2,7 +2,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from enum import Enum
 
 
-class (str, Enum):
+class MethodTypes (str, Enum):
     GET = 'GET'
     POST = 'POST'
     PUT = 'PUT'
