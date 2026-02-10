@@ -1492,10 +1492,16 @@
                     "title": "Url",
                     "type": "string"
                 },
-                "method": {
-                    "$ref": "#/$defs/MethodTypes",
-                    "default": "GET",
-                    "description": "HTTP method to use."
+                "MethodTypes": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MethodTypes"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null
                 },
                 "bearer_token": {
                     "default": null,
