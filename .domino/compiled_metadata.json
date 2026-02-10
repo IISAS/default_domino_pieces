@@ -1474,18 +1474,6 @@
         },
         "description": "Makes a HTTP request to a given URL.",
         "input_schema": {
-            "$defs": {
-                "MethodTypes": {
-                    "enum": [
-                        "GET",
-                        "POST",
-                        "PUT",
-                        "DELETE"
-                    ],
-                    "title": "MethodTypes",
-                    "type": "string"
-                }
-            },
             "properties": {
                 "url": {
                     "description": "URL to make a request to.",
@@ -1493,9 +1481,16 @@
                     "type": "string"
                 },
                 "method": {
-                    "$ref": "#/$defs/MethodTypes",
                     "default": "GET",
-                    "description": "HTTP method to use."
+                    "description": "HTTP method to use.",
+                    "enum": [
+                        "GET",
+                        "POST",
+                        "PUT",
+                        "DELETE"
+                    ],
+                    "title": "Method",
+                    "type": "string"
                 },
                 "bearer_token": {
                     "default": null,
