@@ -38,8 +38,8 @@ jobs:
         run: pip list | grep domino
 
       - name: Run organize and build images
+#          domino piece-repository organize --build-images --source-url=https://github.com/${{github.repository}}      
         run: |
-          #domino piece-repository organize --build-images --source-url=https://github.com/${{github.repository}}
           domino piece organize --build-images --source-url=https://github.com/${{github.repository}}
 
 #      - name: Install Tests Dependencies
