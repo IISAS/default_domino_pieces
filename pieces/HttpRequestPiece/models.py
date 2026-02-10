@@ -3,7 +3,7 @@ from typing import Annotated
 from enum import Enum
 
 
-class MethodTypes (str, Enum):
+class MethodTypes(str, Enum):
     GET = 'GET'
     POST = 'POST'
     PUT = 'PUT'
@@ -16,16 +16,16 @@ class InputModel(BaseModel):
     url: str = Field(
         description="URL to make a request to."
     )
-    method: Annotated[MethodTypes | None, Field(alias='MethodTypes')] = None
+#    method: Annotated[MethodTypes | None, Field(alias='MethodTypes')] = None
 #    method: str = Field(
 #        description="HTTP method to use.", 
 #        default = MethodTypes.GET,
 #        json_schema_extra={"enum": [MethodTypes.GET, MethodTypes.POST, MethodTypes.PUT, MethodTypes.DELETE]}
 #    )
-#    method: MethodTypes = Field(
-#        default=MethodTypes.GET,
-#        description="HTTP method to use."
-#    )
+    method: MethodTypes = Field(
+        default=MethodTypes.GET,
+        description="HTTP method to use."
+    )
     bearer_token: str = Field(
         default=None,
         description="Bearer token to use for authentication."
