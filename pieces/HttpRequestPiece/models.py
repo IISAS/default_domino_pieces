@@ -16,7 +16,7 @@ class InputModel(BaseModel):
     method: str = Field(
         description="HTTP method to use.", 
         default = MethodTypes.GET,
-        json_schema_extra={"enum": [MethodTypes.GET, MethodTypes.POST, MethodTypes.PUT, MethodTypes.DELETE]})
+        json_schema_extra={"enum": [MethodTypes.GET, MethodTypes.POST, MethodTypes.PUT, MethodTypes.DELETE]}
     )
 #    method: MethodTypes = Field(
 #        default=MethodTypes.GET,
