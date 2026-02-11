@@ -14,7 +14,7 @@ class OutputModel(BaseModel):
 
 
 class SecretsModel(BaseModel):
-    LOCAL_TEST_SECRET: str = Field(
+    TEST_SECRET: str = Field(
         ...,
         description = "Set test storage local"
     )
