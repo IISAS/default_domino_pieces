@@ -404,7 +404,20 @@
             "title": "OutputModel",
             "type": "object"
         },
-        "secrets_schema": null,
+        "secrets_schema": {
+            "properties": {
+                "LOCAL_TEST_SECRET": {
+                    "description": "Set test storage local",
+                    "title": "Local Test Secret",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "LOCAL_TEST_SECRET"
+            ],
+            "title": "SecretsModel",
+            "type": "object"
+        },
         "source_url": "https://github.com/IISAS/default_domino_pieces/tree/main/pieces/SaveImagePiece"
     },
     "CustomPythonPiece": {
