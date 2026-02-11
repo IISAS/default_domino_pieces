@@ -11,3 +11,10 @@ class OutputModel(BaseModel):
     output_image_path: str = Field(
         description='Output file path of the saved image.'
     )
+
+
+class SecretsModel(BaseModel):
+    LOCAL_TEST_SECRET: str = Field(
+        ...,
+        description = "Set test storage local"
+    )
