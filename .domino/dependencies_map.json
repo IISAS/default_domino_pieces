@@ -23,7 +23,7 @@
             "StringConditionChecksPiece"
         ],
         "secrets": [
-            "LOCAL_TEST_SECRET"
+            "TEST_SECRET"
         ],
         "source_image": "ghcr.io/iisas/default_domino_pieces:0.9.0-group0"
     }

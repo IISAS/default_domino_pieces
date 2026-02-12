@@ -406,14 +406,14 @@
         },
         "secrets_schema": {
             "properties": {
-                "LOCAL_TEST_SECRET": {
+                "TEST_SECRET": {
                     "description": "Set test storage local",
-                    "title": "Local Test Secret",
+                    "title": "Test Secret",
                     "type": "string"
                 }
             },
             "required": [
-                "LOCAL_TEST_SECRET"
+                "TEST_SECRET"
             ],
             "title": "SecretsModel",
             "type": "object"
