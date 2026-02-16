@@ -5,22 +5,22 @@
             "requirements_file": "requirements_0.txt"
         },
         "pieces": [
-            "ToyDatasetsPiece",
-            "LogPiece",
-            "SleepPiece",
-            "SaveImagePiece",
-            "CustomPythonPiece",
-            "StringOperationsPiece",
-            "DataConversionPiece",
-            "ImageFilterPiece",
             "LoremIpsumGeneratorPiece",
-            "ToStringPiece",
+            "DataConversionPiece",
             "GetItemFromArrayPiece",
+            "HttpRequestPiece",
+            "ImageFilterPiece",
+            "StringConditionChecksPiece",
+            "SaveImagePiece",
+            "ToyDatasetsPiece",
+            "SleepPiece",
             "YDataProfilingPiece",
             "GetDateTimePiece",
+            "LogPiece",
             "PageScrapperPiece",
-            "HttpRequestPiece",
-            "StringConditionChecksPiece"
+            "CustomPythonPiece",
+            "StringOperationsPiece",
+            "ToStringPiece"
         ],
         "secrets": [
             "TEST_SECRET"
