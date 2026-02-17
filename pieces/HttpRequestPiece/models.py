@@ -3,6 +3,15 @@ from typing import Annotated
 from enum import Enum
 
 
+class OutputTypeType(str, Enum):
+    """
+    Output type for the result text
+    """
+    file = "file"
+    base64_string = "base64_string"
+    both = "both"
+
+
 class MethodTypes(str, Enum):
     GET = 'GET'
     POST = 'POST'
@@ -41,9 +50,18 @@ class InputModel(BaseModel):
             'widget': "codeeditor-json",
         }
     )
+    output_type: OutputTypeType = Field(
+        default=OutputTypeType.both,
+        description='Format of the output image. Options are: `file`, `base64_string`, `both`.',
+    )
 
 
 class OutputModel(BaseModel):
-    base64_bytes_data: str = Field(
-        description='Output data as base64 encoded string.'
+    image_base64_string: str = Field(
+        default='',
+        description='Base64 encoded string of the output image.',
+    )
+    image_file_path: str = Field(
+        default='',
+        description='Path to the output image file.',
     )

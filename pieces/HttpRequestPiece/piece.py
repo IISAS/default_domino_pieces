@@ -42,6 +42,26 @@ class HttpRequestPiece(BasePiece):
         except requests.RequestException as e:
             raise Exception(f"HTTP request error: {e}")
 
-        # convert content to base64
-        base64_bytes_data = base64.b64encode(response.content).decode('utf-8')
-        return OutputModel(base64_bytes_data=base64_bytes_data)
+        # Save to file
+        image_file_path = ""
+        if input_data.output_type == "file" or input_data.output_type == "both":
+            image_file_path = f"{self.results_path}/image.png"
+            with open(image_file_path, "wb") as f:
+                f.write(response.content)
+
+        # Convert to base64 string
+        image_base64_string = ""
+        if input_data.output_type == "base64_string" or input_data.output_type == "both":
+            image_base64_string = base64.b64encode(response.content).decode('utf-8')
+        
+        self.display_result = {
+            "file_type": "png",
+            "base64_content": image_base64_string,
+            "file_path": image_file_path
+        }
+
+        # Return output
+        return OutputModel(
+            image_base64_string=image_base64_string,
+            image_file_path=image_file_path,
+        )
