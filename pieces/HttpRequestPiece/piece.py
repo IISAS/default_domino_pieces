@@ -48,6 +48,7 @@ class HttpRequestPiece(BasePiece):
             image_file_path = f"{self.results_path}/image.png"
             with open(image_file_path, "wb") as f:
                 f.write(response.content)
+                f.close()
 
         # Convert to base64 string
         image_base64_string = ""

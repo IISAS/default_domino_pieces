@@ -79,10 +79,12 @@ class ImageFilterPiece(BasePiece):
 
         # Convert Image to NumPy array
         np_image = np.array(image, dtype=float)
+        self.logger.info(f"Size of the image: {np_image.shape[0], np_image.shape[1]}")
 
         # Apply filters
         self.logger.info(f"Applying filters: {', '.join(all_filters)}")
         for filter_name in all_filters:
+            self.logger.info(f"Applying filter: {filter_name}")
             np_mask = np.array(filter_masks[filter_name], dtype=float)
             for y in range(np_image.shape[0]):
                 for x in range(np_image.shape[1]):
@@ -93,6 +95,7 @@ class ImageFilterPiece(BasePiece):
             np_image = np.clip(np_image, 0, 255)
 
         # Convert back to uint8 and PIL image
+        self.logger.info("Convertig data to PIL image")
         np_image = np_image.astype(np.uint8)
         modified_image = Image.fromarray(np_image)
 
