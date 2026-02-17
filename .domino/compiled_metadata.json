@@ -294,6 +294,16 @@
                     ],
                     "title": "MethodTypes",
                     "type": "string"
+                },
+                "OutputTypeType": {
+                    "description": "Output type for the result text",
+                    "enum": [
+                        "file",
+                        "base64_string",
+                        "both"
+                    ],
+                    "title": "OutputTypeType",
+                    "type": "string"
                 }
             },
             "properties": {
@@ -319,6 +329,11 @@
                     "title": "Body Json Data",
                     "type": "string",
                     "widget": "codeeditor-json"
+                },
+                "output_type": {
+                    "$ref": "#/$defs/OutputTypeType",
+                    "default": "both",
+                    "description": "Format of the output image. Options are: `file`, `base64_string`, `both`."
                 }
             },
             "required": [
@@ -329,15 +344,19 @@
         },
         "output_schema": {
             "properties": {
-                "base64_bytes_data": {
-                    "description": "Output data as base64 encoded string.",
-                    "title": "Base64 Bytes Data",
+                "image_base64_string": {
+                    "default": "",
+                    "description": "Base64 encoded string of the output image.",
+                    "title": "Image Base64 String",
+                    "type": "string"
+                },
+                "image_file_path": {
+                    "default": "",
+                    "description": "Path to the output image file.",
+                    "title": "Image File Path",
                     "type": "string"
                 }
             },
-            "required": [
-                "base64_bytes_data"
-            ],
             "title": "OutputModel",
             "type": "object"
         },
