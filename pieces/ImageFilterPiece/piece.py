@@ -79,7 +79,7 @@ class ImageFilterPiece(BasePiece):
 
         # Convert Image to NumPy array
         np_image = np.array(image, dtype=float)
-        self.logger.info(f"Size of the image: {np_image.shape[0], np_image.shape[1]}")
+        self.logger.info(f"Size of the image: {np_image.shape[1], np_image.shape[0]}")
 
         # Apply filters
         self.logger.info(f"Applying filters: {', '.join(all_filters)}")
